@@ -4,14 +4,14 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 const Players = () => {
-    const [players, setPlayers] = useState<Player | null>(null);
+    const [players, setPlayers] = useState<Player[]>([]);
     const [totalPlayers, setTotalPlayers] = useState<number>(0);
     const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
     const getData = async () => {
         const response = await fetch(`${apiUrl}/player/`);
         const data = await response.json();
-        setPlayers(data);
+        setPlayers(data.data);
         setTotalPlayers(data.data.length);
     };
 
@@ -32,14 +32,17 @@ const Players = () => {
     };
 
     // Filter players based on the search query
-    const filteredPlayers = players?.data?.filter((player: any) => {
+    const filteredPlayers = players.filter((player) => {
         const nameMatch = player.name
             .toLowerCase()
             .includes(searchQuery.toLowerCase());
-        const battingMatch = handleOrder(player.battingOrder)
+
+        const battingOrderValue = player.battingOrder ?? 0; // Default to 0
+        const battingMatch = handleOrder(battingOrderValue)
             .toLowerCase()
             .includes(searchQuery.toLowerCase());
-        const bowlingMatch = player.bowlingType
+
+        const bowlingMatch = (player.bowlingType ?? "Not Specified")
             .toLowerCase()
             .includes(searchQuery.toLowerCase());
         const auctionStatusMatch = player.auctionStatus
@@ -68,18 +71,16 @@ const Players = () => {
                     className="w-full md:w-1/2 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-blue-300"
                 />
             </div>
-            {totalPlayers != filteredPlayers?.length ? (
+            {totalPlayers !== filteredPlayers.length && (
                 <p className="text-center pb-8 text-xl font-semibold">
-                    Total Count: {filteredPlayers?.length}
+                    Total Count: {filteredPlayers.length}
                 </p>
-            ) : (
-                ""
             )}
 
             {/* Players Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredPlayers?.length > 0 ? (
-                    filteredPlayers.map((player: any) => (
+                {filteredPlayers.length > 0 ? (
+                    filteredPlayers.map((player) => (
                         <div
                             key={player.id}
                             className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-transform transform hover:scale-105 hover:shadow-xl"
@@ -103,11 +104,12 @@ const Players = () => {
                                 </p>
                                 <p>
                                     <strong>Batsman:</strong>{" "}
-                                    {handleOrder(player.battingOrder)}
+                                    {handleOrder(player.battingOrder ?? 0)}
                                 </p>
                                 <p>
                                     <strong>Bowler:</strong>{" "}
-                                    {player.bowlingType}
+                                    {player.bowlingType ?? "Not Specified"}{" "}
+                                    {/* Fallback value */}
                                 </p>
                                 <p>
                                     <strong>Email:</strong> {player.email}

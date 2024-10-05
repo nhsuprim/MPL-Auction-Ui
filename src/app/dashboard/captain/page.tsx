@@ -4,6 +4,7 @@ import Dashboard from "@/components/dashboard/dashboard";
 import Link from "next/link";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Image from "next/image";
 
 const page = () => {
     const [captains, setCaptains] = useState([]);
@@ -65,20 +66,33 @@ const page = () => {
                         {captains.map((captain: any) => (
                             <div
                                 key={captain.id}
-                                className="p-4 bg-gray-50 rounded-lg shadow hover:shadow-lg transition-shadow duration-200"
+                                className="p-4 bg-gray-50 rounded-lg shadow hover:shadow-lg transition-shadow duration-200 flex justify-between"
                             >
-                                <h2 className="text-xl font-bold">
-                                    {captain.name}
-                                </h2>
-                                <p className="text-gray-600">
-                                    {captain?.team?.name}
-                                </p>
-                                <button
-                                    onClick={() => handleDelete(captain.id)}
-                                    className="btn btn-danger mt-2"
-                                >
-                                    Delete
-                                </button>
+                                <div className="flex justify-center items-center gap-4">
+                                    <Image
+                                        className="rounded-full"
+                                        src={captain.image}
+                                        alt={captain.name}
+                                        width={50}
+                                        height={50}
+                                    />
+                                    <div>
+                                        <h2 className="text-xl font-bold">
+                                            {captain.name}{" "}
+                                            <span className="text-gray-500">
+                                                ({captain?.team?.name})
+                                            </span>
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button
+                                        onClick={() => handleDelete(captain.id)}
+                                        className="btn btn-danger mt-2 bg-red-300 text-red-700 px-2 pt-1"
+                                    >
+                                        Delete
+                                    </button>
+                                </div>
                             </div>
                         ))}
                     </div>

@@ -1,6 +1,7 @@
 "use client";
 import Dashboard from "@/components/dashboard/dashboard";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -16,6 +17,8 @@ const Page = () => {
     const [file, setFile] = useState<File | null>(null); // Handle single file upload
 
     const [error, setError] = useState("");
+
+    const router = useRouter();
 
     // Handle input change for text fields
     const handleChange = (
@@ -72,6 +75,7 @@ const Page = () => {
 
             if (response.data.success === true) {
                 toast.success("Successfully registered");
+                router.push("/dashboard/captain");
             } else {
                 toast.error("Failed to register");
             }
