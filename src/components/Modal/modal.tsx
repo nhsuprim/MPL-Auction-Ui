@@ -60,10 +60,10 @@ const Modal = ({ team, player, onClose, setLoading, loading }: any) => {
     };
 
     return (
-        <dialog open className="modal">
+        <dialog open className="modal shadow-2xl">
             <div className="modal-box">
                 <h3 className="font-bold text-lg">Assigned Player</h3>
-                <p className="py-4">
+                <p className="py-4 text-gray-700 font-semibold">
                     {player?.name} has been assigned to team {team?.name}.
                 </p>
                 <div className="py-2">
@@ -75,12 +75,20 @@ const Modal = ({ team, player, onClose, setLoading, loading }: any) => {
                         className="input input-bordered w-full"
                     />
                 </div>
-                <p>Team: {team?.name}</p>
+                <p className="text-gray-700 font-semibold">
+                    Team: {team?.name}
+                </p>
                 <div className="modal-action">
-                    <button className="btn" onClick={handleSubmit}>
+                    <button
+                        className="btn bg-green-400 text-green-700 px-2 py-1 font-semibold"
+                        onClick={handleSubmit}
+                    >
                         Submit
                     </button>
-                    <button className="btn" onClick={onClose}>
+                    <button
+                        className="btn bg-red-400 text-red-700 px-2 py-1 font-semibold"
+                        onClick={onClose}
+                    >
                         Close
                     </button>
                 </div>

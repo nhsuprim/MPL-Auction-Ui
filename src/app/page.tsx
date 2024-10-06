@@ -9,8 +9,7 @@ export default function Home() {
         <div className="container min-h-screen mx-auto px-4 space-y-10">
             <Introduct />
             <About />
-            <Help />
-            <ToastContainer
+            {/* <ToastContainer
                 position="top-right"
                 autoClose={5000}
                 hideProgressBar={false}
@@ -22,7 +21,8 @@ export default function Home() {
                 pauseOnHover
                 theme="light"
                 transition={Bounce}
-            />
+            /> */}
+            <Help />
         </div>
     );
 }
