@@ -150,7 +150,7 @@ const Signup = () => {
                 </div>
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Address (বয়স)</span>
+                        <span className="label-text">Address (ঠিকানা)</span>
                     </label>
                     <input
                         type="text"

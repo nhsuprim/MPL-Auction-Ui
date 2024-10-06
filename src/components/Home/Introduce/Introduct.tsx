@@ -54,7 +54,7 @@ const Introduct = () => {
                 ফর্ম সংগ্রহের জন্য ক্লিক করুন{" "}
                 <Link href="/signup">
                     <span className="text-red-800 bg-red-300 px-2 py-1 rounded-lg">
-                        রেজিস্ট্রেশান
+                        রেজিস্ট্রেশন
                     </span>
                 </Link>
             </p>
