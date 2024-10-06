@@ -1,5 +1,5 @@
 "use client";
-import Confetti from "@/components/Animation/Animation";
+
 import Dashboard from "@/components/dashboard/dashboard";
 import Modal from "@/components/Modal/modal";
 import { Player, Team } from "@/interfaces/types";
@@ -91,7 +91,6 @@ const Page = () => {
             <div className="flex">
                 <div className="w-1/4">
                     <Dashboard />
-                    <Confetti />
                 </div>
                 <div className="w-3/4 ml-8 p-6 bg-white rounded-lg shadow-md">
                     <h1 className="text-2xl font-bold mb-4">MPL Auction</h1>

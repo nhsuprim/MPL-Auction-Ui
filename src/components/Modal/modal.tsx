@@ -44,6 +44,7 @@ const Modal = ({ team, player, onClose, setLoading, loading }: any) => {
             if (response.data.success) {
                 toast.success("Player successfully registered as sold.");
                 jsConfetti.addConfetti();
+
                 setLoading(!loading);
                 onClose();
             } else {

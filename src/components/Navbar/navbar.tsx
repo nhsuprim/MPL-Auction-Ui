@@ -17,6 +17,7 @@ const Navbar = () => {
     const [isVisible, setIsVisible] = useState(true);
     const [admin, setAdmin] = useState(false);
     const [player, setPlayer] = useState(false);
+    const [captain, setCaptain] = useState(false);
     const pathname = usePathname();
     let lastScrollTop = 0;
 
@@ -30,6 +31,9 @@ const Navbar = () => {
             }
             if (userInfo.role === "player") {
                 setPlayer(true);
+            }
+            if (userInfo.role === "captain") {
+                setCaptain(true);
             }
             console.log(userInfo);
         };
@@ -149,8 +153,8 @@ const Navbar = () => {
                                             ></span>
                                         </Link>
                                     )}
-                                    {/* Conditionally render the My Team link if the user is not an admin */}
-                                    {!admin && !player && (
+                                    {/* Conditionally render the My Team link if the user is a captain */}
+                                    {captain && (
                                         <Link
                                             href="/my-team"
                                             className={`relative text-gray-500 px-3 py-2 rounded-md text-sm font-medium hover:scale-105 transition-transform duration-200 hover:text-blue-400 ${
@@ -257,8 +261,8 @@ const Navbar = () => {
                                     ></span>
                                 </Link>
                             )}
-                            {/* Conditionally render the My Team link if the user is not an admin */}
-                            {!admin && !player && (
+                            {/* Conditionally render the My Team link if the user is a captain */}
+                            {captain && (
                                 <Link
                                     href="/my-team"
                                     className={`relative text-gray-800 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 hover:text-blue-400 ${
@@ -276,22 +280,6 @@ const Navbar = () => {
                                                 : "w-0 group-hover:w-full"
                                         }`}
                                     ></span>
-                                </Link>
-                            )}
-                        </div>
-                        <div className="pl-5 w-fit">
-                            {user?.email ? (
-                                <button
-                                    className="btn btn-primary"
-                                    onClick={handleLogout}
-                                >
-                                    LOGOUT
-                                </button>
-                            ) : (
-                                <Link href="/login">
-                                    <button className="btn btn-primary">
-                                        LOGIN
-                                    </button>
                                 </Link>
                             )}
                         </div>

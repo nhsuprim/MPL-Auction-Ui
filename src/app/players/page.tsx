@@ -118,7 +118,7 @@ const Players = () => {
                                     <strong>Contact:</strong>{" "}
                                     {player.contactNumber}
                                 </p>
-                                <p className="mt-2 capitalize">
+                                <p className="mt-2 capitalize text-balance max-w-xs break-words">
                                     <strong>Address:</strong> {player.address}
                                 </p>
                             </div>
