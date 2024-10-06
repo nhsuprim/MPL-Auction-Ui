@@ -1,4 +1,5 @@
 "use client";
+import Confetti from "@/components/Animation/Animation";
 import Dashboard from "@/components/dashboard/dashboard";
 import Modal from "@/components/Modal/modal";
 import { Player, Team } from "@/interfaces/types";
@@ -90,6 +91,7 @@ const Page = () => {
             <div className="flex">
                 <div className="w-1/4">
                     <Dashboard />
+                    <Confetti />
                 </div>
                 <div className="w-3/4 ml-8 p-6 bg-white rounded-lg shadow-md">
                     <h1 className="text-2xl font-bold mb-4">MPL Auction</h1>
@@ -111,7 +113,7 @@ const Page = () => {
                                 </div>
 
                                 <div className="ml-8">
-                                    <h2 className="text-5xl mb-8 font-bold">
+                                    <h2 className="text-5xl mb-8 font-bold capitalize">
                                         {players[currentPlayerIndex]?.name}
                                     </h2>
                                     <div className="pt-8 text-xl">
@@ -140,8 +142,8 @@ const Page = () => {
                                                     ?.bowlingType
                                             }
                                         </p>
-                                        <p className="pt-2">
-                                            <span className="text-gray-700 font-semibold ">
+                                        <p className="pt-2 capitalize">
+                                            <span className="text-gray-700 font-semibold capitalize">
                                                 Address:{" "}
                                             </span>
                                             {

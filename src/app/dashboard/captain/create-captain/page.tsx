@@ -12,7 +12,6 @@ const Page = () => {
         contactNumber: "",
         email: "",
     });
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
     const [file, setFile] = useState<File | null>(null); // Handle single file upload
 
@@ -177,7 +176,7 @@ const Page = () => {
                                 className="block text-gray-700 text-sm font-bold mb-2"
                                 htmlFor="file"
                             >
-                                Upload Captain's Image
+                                Upload Captain&apos;s Image
                             </label>
                             <input
                                 type="file"

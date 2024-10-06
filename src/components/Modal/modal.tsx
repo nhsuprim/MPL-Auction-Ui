@@ -2,9 +2,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import JSConfetti from "js-confetti";
 
 const Modal = ({ team, player, onClose, setLoading, loading }: any) => {
     const [value, setValue] = useState("");
+    const jsConfetti = new JSConfetti();
 
     const handleSubmit = async () => {
         const data = {
@@ -41,7 +43,7 @@ const Modal = ({ team, player, onClose, setLoading, loading }: any) => {
 
             if (response.data.success) {
                 toast.success("Player successfully registered as sold.");
-
+                jsConfetti.addConfetti();
                 setLoading(!loading);
                 onClose();
             } else {

@@ -92,7 +92,7 @@ const Players = () => {
                                 height={120}
                                 className="rounded-full object-cover mb-4"
                             />
-                            <h2 className="text-xl font-bold text-gray-800 mb-2">
+                            <h2 className="text-xl font-bold text-gray-800 mb-2 capitalize">
                                 {player.name}
                             </h2>
                             <div className="mb-4 text-left text-gray-600">
@@ -118,7 +118,7 @@ const Players = () => {
                                     <strong>Contact:</strong>{" "}
                                     {player.contactNumber}
                                 </p>
-                                <p className="mt-2">
+                                <p className="mt-2 capitalize">
                                     <strong>Address:</strong> {player.address}
                                 </p>
                             </div>
