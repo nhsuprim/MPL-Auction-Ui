@@ -282,6 +282,25 @@ const Navbar = () => {
                                     ></span>
                                 </Link>
                             )}
+                            <div className="pl-2">
+                                {user?.email ? (
+                                    <button
+                                        className="btn btn-primary"
+                                        onClick={handleLogout}
+                                    >
+                                        LOGOUT
+                                    </button>
+                                ) : (
+                                    <Link
+                                        onClick={handleMenuClick}
+                                        href="/login"
+                                    >
+                                        <button className="btn btn-primary">
+                                            LOGIN
+                                        </button>
+                                    </Link>
+                                )}
+                            </div>
                         </div>
                     </div>
                 )}
