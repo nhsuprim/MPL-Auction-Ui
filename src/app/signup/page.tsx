@@ -235,7 +235,7 @@ const Signup = () => {
                 <div className="p-5 border border-gray-400 text-red-400 text-center font-semibold">
                     <h2> শুধু মাত্র বিকাশ পেমেন্টের জন্য।</h2>
                     <h2>বিকাশ সেন্ড মানি করুন ০১৬৩৮৭৪৪১৫১</h2>
-                    <h2>রেজিস্ট্রেশন ফীঃ ৫০০ টাকা</h2>
+                    <h2>রেজিস্ট্রেশন ফীঃ ৫১০ টাকা</h2>
                 </div>
 
                 <div className="form-control">
