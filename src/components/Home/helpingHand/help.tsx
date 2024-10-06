@@ -18,7 +18,7 @@ const Help = () => {
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 justify-center">
                 {/* Suprim */}
                 <div className="bg-white shadow-md rounded-lg p-4">
-                    <div className="relative w-[200px] h-[200px]">
+                    <div className="relative w-full h-0 pb-[100%] md:w-[200px] md:h-[200px]">
                         <Image
                             src={suprim}
                             alt="Suprim"
@@ -30,7 +30,7 @@ const Help = () => {
                 </div>
 
                 <div className="bg-white shadow-md rounded-lg p-4">
-                    <div className="relative w-[200px] h-[200px]">
+                    <div className="relative w-full h-0 pb-[100%] md:w-[200px] md:h-[200px]">
                         <Image
                             src={sohag}
                             alt="sohag"
@@ -42,7 +42,7 @@ const Help = () => {
                 </div>
 
                 <div className="bg-white shadow-md rounded-lg p-4">
-                    <div className="relative w-[200px] h-[200px]">
+                    <div className="relative w-full h-0 pb-[100%] md:w-[200px] md:h-[200px]">
                         <Image
                             src={miko}
                             alt="miko"
@@ -54,7 +54,7 @@ const Help = () => {
                 </div>
                 {/* Saiful */}
                 <div className="bg-white shadow-md rounded-lg p-4">
-                    <div className="relative w-[200px] h-[200px]">
+                    <div className="relative w-full h-0 pb-[100%] md:w-[200px] md:h-[200px]">
                         <Image
                             src={saiful}
                             alt="Saiful"
@@ -67,7 +67,7 @@ const Help = () => {
 
                 {/* Juwel */}
                 <div className="bg-white shadow-md rounded-lg p-4">
-                    <div className="relative w-[200px] h-[200px]">
+                    <div className="relative w-full h-0 pb-[100%] md:w-[200px] md:h-[200px]">
                         <Image
                             src={juwel}
                             alt="Juwel"
@@ -79,7 +79,7 @@ const Help = () => {
                 </div>
 
                 <div className="bg-white shadow-md rounded-lg p-4">
-                    <div className="relative w-[200px] h-[200px]">
+                    <div className="relative w-full h-0 pb-[100%] md:w-[200px] md:h-[200px]">
                         <Image
                             src={limon}
                             alt="limon"
@@ -90,7 +90,7 @@ const Help = () => {
                     <p className="mt-4 text-xl font-semibold">Limon</p>
                 </div>
                 <div className="bg-white shadow-md rounded-lg p-4">
-                    <div className="relative w-[200px] h-[200px]">
+                    <div className="relative w-full h-0 pb-[100%] md:w-[200px] md:h-[200px]">
                         <Image
                             src={ujjal}
                             alt="ujjal"
@@ -101,7 +101,7 @@ const Help = () => {
                     <p className="mt-4 text-xl font-semibold">Ujjal</p>
                 </div>
                 <div className="bg-white shadow-md rounded-lg p-4">
-                    <div className="relative w-[200px] h-[200px]">
+                    <div className="relative w-full h-0 pb-[100%] md:w-[200px] md:h-[200px]">
                         <Image
                             src={tarif}
                             alt="tarif"
@@ -112,7 +112,7 @@ const Help = () => {
                     <p className="mt-4 text-xl font-semibold">Tarif</p>
                 </div>
                 <div className="bg-white shadow-md rounded-lg p-4">
-                    <div className="relative w-[200px] h-[200px]">
+                    <div className="relative w-full h-0 pb-[100%] md:w-[200px] md:h-[200px]">
                         <Image
                             src={mithun}
                             alt="mithun"
@@ -123,7 +123,7 @@ const Help = () => {
                     <p className="mt-4 text-xl font-semibold">Mithun</p>
                 </div>
                 <div className="bg-white shadow-md rounded-lg p-4">
-                    <div className="relative w-[200px] h-[200px]">
+                    <div className="relative w-full h-0 pb-[100%] md:w-[200px] md:h-[200px]">
                         <Image
                             src={tusan}
                             alt="tusan"

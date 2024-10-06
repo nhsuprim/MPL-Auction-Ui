@@ -39,7 +39,7 @@ const Login = () => {
     console.log(getUserInfo());
 
     return (
-        <div className="flex min-h-screen items-center justify-center h-screen bg-gray-100">
+        <div className="flex min-h-screen justify-center h-screen bg-gray-100">
             <form
                 onSubmit={handleSubmit}
                 className="bg-white p-6 rounded shadow-md w-96"

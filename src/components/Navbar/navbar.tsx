@@ -279,6 +279,22 @@ const Navbar = () => {
                                 </Link>
                             )}
                         </div>
+                        <div className="pl-5 w-fit">
+                            {user?.email ? (
+                                <button
+                                    className="btn btn-primary"
+                                    onClick={handleLogout}
+                                >
+                                    LOGOUT
+                                </button>
+                            ) : (
+                                <Link href="/login">
+                                    <button className="btn btn-primary">
+                                        LOGIN
+                                    </button>
+                                </Link>
+                            )}
+                        </div>
                     </div>
                 )}
             </nav>
