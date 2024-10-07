@@ -7,6 +7,7 @@ import { getUserInfo, storeUserInfo } from "@/Server/auth.service";
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -17,18 +18,16 @@ const Login = () => {
         };
 
         try {
-            const response = await axios.post(
-                "https://mpl-auction-production.up.railway.app/api/v1/auth/login",
-                data
-            );
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-            // console.log(token);
-            // console.log("response", response.data);
+            const response = await axios.post(`${apiUrl}/auth/login`, data);
+
             if (response.data.success === true) {
                 const token = response?.data?.data?.accessToken;
                 storeUserInfo({ accessToken: token });
                 toast.success("Logged in successfully!");
-                window.location.href = "/"; // Redirect to dashboard after successful login
+                window.location.href = "/";
+                setIsLoading(true); // Redirect to dashboard after successful login
             }
             // toast("Wow so easy!");
         } catch (error: any) {
@@ -44,6 +43,13 @@ const Login = () => {
                 onSubmit={handleSubmit}
                 className="bg-white p-6 rounded shadow-md w-96"
             >
+                {isLoading ? (
+                    <div className="w-full  text-center">
+                        <span className="loading loading-spinner w-8 h-8"></span>
+                    </div>
+                ) : (
+                    ""
+                )}
                 <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
 
                 <div className="mb-4">
