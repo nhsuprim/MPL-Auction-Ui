@@ -56,6 +56,7 @@ const Modal = ({ team, player, onClose, setLoading, loading }: any) => {
                 err.response.data.message
             );
             toast.error(err.response.data.message);
+            // toast.error("এটা কি মিঠুন? থাপ্পড় লাগা হালার কাছে টাকা নাই");
         }
     };
 

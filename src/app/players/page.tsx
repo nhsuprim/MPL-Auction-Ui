@@ -6,13 +6,20 @@ import React, { useEffect, useState } from "react";
 const Players = () => {
     const [players, setPlayers] = useState<Player[]>([]);
     const [totalPlayers, setTotalPlayers] = useState<number>(0);
+    const [loading, setLoading] = useState(true); // Add loading state
     const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
     const getData = async () => {
-        const response = await fetch(`${apiUrl}/player/`);
-        const data = await response.json();
-        setPlayers(data.data);
-        setTotalPlayers(data.data.length);
+        try {
+            const response = await fetch(`${apiUrl}/player/`);
+            const data = await response.json();
+            setPlayers(data.data);
+            setTotalPlayers(data.data.length);
+        } catch (error) {
+            console.error("Error fetching players:", error);
+        } finally {
+            setLoading(false); // Set loading to false when the data is fetched
+        }
     };
 
     useEffect(() => {
@@ -78,20 +85,36 @@ const Players = () => {
             )}
 
             {/* Players Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredPlayers.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-fit mx-auto ">
+                {loading ? (
+                    // Show skeletons when loading
+                    Array(8)
+                        .fill(0)
+                        .map((_, index) => (
+                            <div
+                                key={index}
+                                className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center animate-pulse"
+                            >
+                                <div className="w-32 h-32 bg-gray-300 rounded-lg mb-4"></div>
+                                <div className="w-24 h-4 bg-gray-300 rounded mb-2"></div>
+                                <div className="w-32 h-4 bg-gray-300 rounded mb-2"></div>
+                                <div className="w-20 h-4 bg-gray-300 rounded"></div>
+                            </div>
+                        ))
+                ) : filteredPlayers.length > 0 ? (
                     filteredPlayers.map((player) => (
                         <div
                             key={player.id}
                             className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-transform transform hover:scale-105 hover:shadow-xl"
                         >
-                            <Image
-                                src={player.images[0]}
-                                alt={player.name}
-                                width={120}
-                                height={120}
-                                className="rounded-full object-cover mb-4"
-                            />
+                            <div className="relative w-[200px] h-[200px] mb-4">
+                                <Image
+                                    src={player.images[0]}
+                                    alt={player.name}
+                                    fill
+                                    className="rounded-lg object-cover mb-4"
+                                />
+                            </div>
                             <h2 className="text-xl font-bold text-gray-800 mb-2 capitalize">
                                 {player.name}
                             </h2>
@@ -108,8 +131,7 @@ const Players = () => {
                                 </p>
                                 <p>
                                     <strong>Bowler:</strong>{" "}
-                                    {player.bowlingType ?? "Not Specified"}{" "}
-                                    {/* Fallback value */}
+                                    {player.bowlingType ?? "Not Specified"}
                                 </p>
                                 <p>
                                     <strong>Email:</strong> {player.email}
@@ -118,7 +140,7 @@ const Players = () => {
                                     <strong>Contact:</strong>{" "}
                                     {player.contactNumber}
                                 </p>
-                                <p className="mt-2 capitalize text-balance max-w-xs break-words">
+                                <p className="mt-2 capitalize text-sm max-w-xs text-ellipsis break-all">
                                     <strong>Address:</strong> {player.address}
                                 </p>
                             </div>
