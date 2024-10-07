@@ -14,7 +14,7 @@ const Introduct = () => {
                     height={120}
                     className=""
                 />
-                <h1 className="text-center text-xl sm:text-2xl lg:text-5xl font-bold text-gray-700">
+                <h1 className="text-center text-lg sm:text-xl lg:text-5xl font-bold text-gray-700">
                     MIRHAZIRBAG PREMIER LEAGUE SEASON - 12
                 </h1>
             </div>
@@ -48,7 +48,7 @@ const Introduct = () => {
             </p>
 
             <p className="text-xl leading-relaxed text-red-500 font-semibold mb-4">
-                আমাদের উদ্বোধনী খেলা অনুষ্ঠিত হবে আগামী ৫ই নভেম্বর, শুক্রবার, ইন
+                আমাদের উদ্বোধনী খেলা অনুষ্ঠিত হবে আগামী ৮ই নভেম্বর, শুক্রবার, ইন
                 শা আল্লাহ।
             </p>
 
