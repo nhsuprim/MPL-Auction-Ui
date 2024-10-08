@@ -180,7 +180,7 @@ const Signup = () => {
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">
-                                Password (পাসওয়ার্ড)
+                                Password (যেকোনো একটি পাসওয়ার্ড দিন)
                             </span>
                         </label>
                         <input
