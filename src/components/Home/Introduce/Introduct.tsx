@@ -80,6 +80,14 @@ const Introduct = () => {
                 সমর্থন দেয়ার জন্য ধন্যবাদ। আসুন আমরা একসাথে একটি সুন্দর ও
                 স্মরণীয় টুর্নামেন্ট আয়োজন করি।
             </p>
+            <p className="text-xl font-semibold text-gray-700 pt-4">
+                For more info: 01732295556 (Shohag), 01638744151 (Suprim)
+            </p>
+            <p className="text-xl font-semibold underline text-blue-700 pt-4">
+                <Link href="https://www.facebook.com/share/g/y5Coxqp2KUBt8aSC/">
+                    Our FaceBook Group
+                </Link>
+            </p>
         </div>
     );
 };

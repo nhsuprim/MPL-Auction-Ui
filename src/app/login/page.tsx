@@ -18,6 +18,7 @@ const Login = () => {
         };
 
         try {
+            setIsLoading(true); // Show spinner when login request starts
             const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
             const response = await axios.post(`${apiUrl}/auth/login`, data);
@@ -27,11 +28,11 @@ const Login = () => {
                 storeUserInfo({ accessToken: token });
                 toast.success("Logged in successfully!");
                 window.location.href = "/";
-                setIsLoading(true); // Redirect to dashboard after successful login
             }
-            // toast("Wow so easy!");
         } catch (error: any) {
             toast.error("Invalid Credentials");
+        } finally {
+            setIsLoading(false); // Hide spinner after request is completed (success or failure)
         }
     };
 
@@ -43,12 +44,10 @@ const Login = () => {
                 onSubmit={handleSubmit}
                 className="bg-white p-6 rounded shadow-md w-96"
             >
-                {isLoading ? (
-                    <div className="w-full  text-center">
+                {isLoading && (
+                    <div className="w-full text-center">
                         <span className="loading loading-spinner w-8 h-8"></span>
                     </div>
-                ) : (
-                    ""
                 )}
                 <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
 
