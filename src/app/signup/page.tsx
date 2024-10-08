@@ -233,7 +233,7 @@ const Signup = () => {
                 </div>
 
                 <div className="p-5 border border-gray-400 text-red-400 text-center font-semibold">
-                    <h2> শুধু মাত্র বিকাশ পেমেন্টের জন্য।</h2>
+                    <h2> শুধু মাত্র বিকাশ প্রযোজ্য।</h2>
                     <h2>বিকাশ সেন্ড মানি করুন ০১৬৩৮৭৪৪১৫১</h2>
                     <h2>রেজিস্ট্রেশন ফীঃ ৫১০ টাকা</h2>
                 </div>
@@ -241,8 +241,8 @@ const Signup = () => {
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">
-                            Transaction Number (পেমেন্ট করার পর আপনার বিকাশ
-                            নাম্বার টি লিখুন){" "}
+                            Transaction Number (বিকাশ-সেন্ডমানি করার পর আপনার
+                            বিকাশ নাম্বার টি লিখুন){" "}
                         </span>
                     </label>
                     <input
