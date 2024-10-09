@@ -9,7 +9,7 @@ const Footer = () => {
                 &copy; {currentYear} Mirhazirbag Premier League. All rights
                 reserved.
             </p>
-            <p>Mady By SUPRIM</p>
+            <p>Made By SUPRIM</p>
         </footer>
     );
 };

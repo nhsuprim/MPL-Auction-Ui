@@ -71,7 +71,10 @@ const Page = () => {
                                     </h3>
 
                                     <p className="mt-4 text-gray-600 font-medium">
-                                        Team Players:
+                                        Team Players:{" "}
+                                        <span className="text-gray-600 italic">
+                                            {team?.players.length} players
+                                        </span>
                                     </p>
                                     <ul className="mt-2 space-y-4">
                                         {team?.players?.map((player: any) => (

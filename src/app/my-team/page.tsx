@@ -106,23 +106,31 @@ const CreateTeamPage = () => {
 
                 {captainData ? (
                     <div className="bg-white p-6 rounded-lg shadow-md">
-                        <h2 className="text-2xl font-semibold mb-4">
-                            Captain: {captainData?.captain?.name}
+                        <h2 className="text-xl font-bold mb-4">
+                            Captain:{" "}
+                            <span className="text-gray-700 font-semibold ">
+                                {captainData?.captain?.name}
+                            </span>
                         </h2>
-                        <p className="text-lg text-gray-700 mb-2">
+                        <p className="text-lg font-bold mb-2">
                             Team Name:{" "}
-                            <span className="font-medium">
+                            <span className="font-semibold text-gray-700">
                                 {captainData.name}
                             </span>
                         </p>
-                        <p className="text-lg text-gray-700 mb-4">
+                        <p className="text-lg font-bold mb-4 ">
                             Balance:{" "}
-                            <span className="font-medium">
-                                {captainData.balance} tk
+                            <span className="font-semibold text-red-500 ">
+                                ${captainData.balance}
                             </span>
                         </p>
 
-                        <h3 className="text-xl font-semibold mb-3">Players:</h3>
+                        <h3 className="text-xl font-bold mb-3">
+                            Players:{" "}
+                            <span className="italic font-semibold  text-gray-600">
+                                {captainData?.players.length} players
+                            </span>
+                        </h3>
                         <ul>
                             {captainData?.players?.map((player: any) => (
                                 <li
