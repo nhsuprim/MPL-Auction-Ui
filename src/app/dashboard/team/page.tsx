@@ -153,8 +153,8 @@ const page = () => {
                                                 </div>
                                                 <div className="mt-2">
                                                     <span className="bg-green-200 text-green-800 font-bold p-1 rounded-full text-md">
-                                                        value:{" "}
-                                                        {player.playerCost} tk
+                                                        value: $
+                                                        {player.playerCost}
                                                     </span>
                                                     <p className="text-gray-600 font-semibold">
                                                         Contact:{" "}

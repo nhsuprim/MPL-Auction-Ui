@@ -111,8 +111,8 @@ const Signup = () => {
                     />
                 </div>
 
-                <div className="md:flex md:gap-4">
-                    <div className="form-control">
+                <div className="md:flex justify-between items-center md:gap-4">
+                    <div className="form-control md:w-3/4">
                         <label className="label">
                             <span className="label-text">
                                 Contact Number (মোবাইল নাম্বার)
@@ -127,7 +127,7 @@ const Signup = () => {
                             className="input input-bordered w-full"
                         />
                     </div>
-                    <div className="form-control">
+                    <div className="form-control md:w-1/3">
                         <label className="label">
                             <span className="label-text">Age (বয়স)</span>
                         </label>
@@ -156,7 +156,7 @@ const Signup = () => {
                     />
                 </div>
 
-                <div className="md:flex md:gap-4">
+                <div className="md:flex md:justify-between md:gap-4">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email (ইমেইল)</span>
@@ -174,7 +174,7 @@ const Signup = () => {
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">
-                                Password (যেকোনো একটি পাসওয়ার্ড দিন)
+                                Password (যেকোনো পাসওয়ার্ড দিন)
                             </span>
                         </label>
                         <input

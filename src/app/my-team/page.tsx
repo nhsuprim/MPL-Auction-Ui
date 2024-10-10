@@ -159,7 +159,7 @@ const CreateTeamPage = () => {
                                         </div>
                                         <div>
                                             <span className="bg-green-200 text-green-800 px-3 py-1 rounded-full">
-                                                {player.playerCost} tk
+                                                ${player.playerCost}
                                             </span>
                                         </div>
                                     </div>

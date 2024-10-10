@@ -87,7 +87,7 @@ const Page = () => {
                                                         {player.name}
                                                     </h4>
                                                     <span className="text-sm bg-green-200 text-green-800 font-bold py-1 px-2 rounded-full">
-                                                        {player.playerCost} tk
+                                                        ${player.playerCost}
                                                     </span>
                                                 </div>
                                                 <p className="text-gray-600 mt-2">
