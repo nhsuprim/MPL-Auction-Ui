@@ -2,7 +2,7 @@ import React from "react";
 
 const Song = () => {
     return (
-        <div className="flex justify-center items-center min-h-screen">
+        <div className="flex justify-center items-center ">
             <div className="w-full mx-auto aspect-video">
                 <h1 className="text-red-600 text-5xl text-center font-bold pb-4">
                     Theme Song
@@ -12,7 +12,7 @@ const Song = () => {
                     src="https://www.youtube.com/embed/ry_rVSRSAtM?autoplay=1&mute=1"
                     title="YouTube video player"
                     frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                 ></iframe>
             </div>

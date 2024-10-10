@@ -20,7 +20,7 @@ const page = () => {
     }, []);
 
     // Delete player by ID
-    const handleDelete = async (playerId: string) => {
+    const handleConfirm = async (playerId: string) => {
         console.log(playerId);
 
         const token = localStorage.getItem("accessToken");
@@ -50,6 +50,38 @@ const page = () => {
             toast.error("Error confirming the player");
         }
     };
+
+    const handleDelete = async (playerId: string) => {
+        console.log(playerId);
+
+        const token = localStorage.getItem("accessToken");
+
+        if (!token) {
+            console.error("No token found, unable to proceed with deletion.");
+            return;
+        }
+
+        try {
+            const response = await fetch(
+                `${apiUrl}/admin/delete-player/${playerId}`,
+                {
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `${token}`,
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+
+            if (response.ok) {
+                toast.success("Player successfully deleted.");
+                getData();
+            }
+        } catch (error) {
+            toast.error("Error Deleting the player");
+        }
+    };
+
     return (
         <div className=" min-h-screen bg-gray-100 p-4 ">
             <div className="flex ">
@@ -108,14 +140,22 @@ const page = () => {
                                             <td className="border border-gray-300 px-4 py-2">
                                                 {player.transactionNumber}
                                             </td>
-                                            <td className="border border-gray-300 px-4 py-2">
+                                            <td className="border border-gray-300 px-4 py-2 text-center uppercase">
+                                                <button
+                                                    onClick={() =>
+                                                        handleConfirm(player.id)
+                                                    }
+                                                    className="text-green-600 hover:text-green-800 bg-green-400 py-1 px-2 rounded-full font-bold mr-2"
+                                                >
+                                                    Confirm
+                                                </button>
                                                 <button
                                                     onClick={() =>
                                                         handleDelete(player.id)
                                                     }
-                                                    className="text-green-600 hover:text-green-800 font-semibold"
+                                                    className="text-red-600 hover:text-red-800 bg-red-400 py-1 px-2 rounded-full font-bold"
                                                 >
-                                                    Confirm
+                                                    Delete
                                                 </button>
                                             </td>
                                         </tr>

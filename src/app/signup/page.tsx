@@ -18,30 +18,26 @@ const Signup = () => {
     });
 
     const [files, setFiles] = useState<File[]>([]);
-
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
 
-    // Handle input change for text fields
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
     ) => {
         setData({ ...data, [e.target.name]: e.target.value });
     };
 
-    // Handle file input changes
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { files } = e.target;
-
         if (files) {
-            // Convert FileList to an array
             const newFiles = Array.from(files);
-            // Update state with existing images plus the new ones
             setFiles((prevImages) => [...prevImages, ...newFiles]);
         }
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setLoading(true);
 
         const value = {
             password: data.password,
@@ -50,45 +46,42 @@ const Signup = () => {
                 contactNumber: data.contactNumber,
                 email: data.email,
                 address: data.address,
-                age: Number(data.age), // Ensure age is a number
-                battingOrder: Number(data.battingOrder), // Ensure battingOrder is a number
+                age: Number(data.age),
+                battingOrder: Number(data.battingOrder),
                 bowlingType: data.bowlingType,
                 transactionNumber: data.transactionNumber,
                 auctionStatus: data.auctionStatus,
-                // Removed images from here
             },
         };
 
         const formData = new FormData();
-
-        // Append JSON data
         formData.append("data", JSON.stringify(value));
 
-        // Append files
         files.forEach((file) => {
             formData.append("files", file);
         });
 
-        console.log(formData);
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
         try {
             const response = await axios.post(
-                "https://mpl-auction-production.up.railway.app/api/v1/user/create-player",
+                `${apiUrl}/user/create-player`,
                 formData,
                 {
                     headers: {
-                        "Content-Type": "multipart/form-data", // Important for file uploads
+                        "Content-Type": "multipart/form-data",
                     },
                 }
             );
-            console.log("Response:", response.data);
-            if (response.data.success === true) {
+            if (response.data.success) {
                 toast.success("Successfully registered");
-                window.location.href = "/login";
+                window.location.href = "/";
             }
         } catch (err) {
             console.error("Error during signup:", err);
             setError("An error occurred during signup.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -148,6 +141,7 @@ const Signup = () => {
                         />
                     </div>
                 </div>
+
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Address (ঠিকানা)</span>
@@ -233,7 +227,7 @@ const Signup = () => {
                 </div>
 
                 <div className="p-5 border border-gray-400 text-red-400 text-center font-semibold">
-                    <h2> শুধু মাত্র বিকাশ প্রযোজ্য।</h2>
+                    <h2>শুধু মাত্র বিকাশ প্রযোজ্য।</h2>
                     <h2>বিকাশ সেন্ড মানি করুন ০১৬৩৮৭৪৪১৫১</h2>
                     <h2>রেজিস্ট্রেশন ফীঃ ৫১০ টাকা</h2>
                 </div>
@@ -242,7 +236,7 @@ const Signup = () => {
                     <label className="label">
                         <span className="label-text">
                             Transaction Number (বিকাশ-সেন্ডমানি করার পর আপনার
-                            বিকাশ নাম্বার টি লিখুন){" "}
+                            বিকাশ নাম্বার টি লিখুন)
                         </span>
                     </label>
                     <input
@@ -255,7 +249,6 @@ const Signup = () => {
                     />
                 </div>
 
-                {/* Image Uploaders */}
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text font-semibold">
@@ -271,36 +264,12 @@ const Signup = () => {
                     />
                 </div>
 
-                {/* <div className="form-control">
-                    <label className="label">
-                        <span className="label-text font-semibold">
-                            CricHeros Bating Profile (যদি থাকে)
-                        </span>
-                    </label>
-                    <input
-                        type="file"
-                        name="files"
-                        onChange={handleFileChange}
-                        className="file-input file-input-bordered w-full"
-                    />
-                </div>
-
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text font-semibold">
-                            CricHeros Bowling Profile (যদি থাকে)
-                        </span>
-                    </label>
-                    <input
-                        type="file"
-                        name="files"
-                        onChange={handleFileChange}
-                        className="file-input file-input-bordered w-full"
-                    />
-                </div> */}
-
-                <button type="submit" className="btn btn-primary w-full">
-                    Submit
+                <button
+                    type="submit"
+                    className="btn btn-primary w-full"
+                    disabled={loading}
+                >
+                    {loading ? "Submitting..." : "Submit"}
                 </button>
             </form>
         </div>
