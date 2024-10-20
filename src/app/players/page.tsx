@@ -30,7 +30,7 @@ const Players = () => {
 
     const handleOrder = (value: number) => {
         if (value < 3) {
-            return "Opening Batsman";
+            return "Top Order";
         } else if (value >= 3 && value <= 5) {
             return "Middle Order";
         } else {
