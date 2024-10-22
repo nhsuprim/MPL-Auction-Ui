@@ -6,10 +6,9 @@ import { Player, Team } from "@/interfaces/types";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
-// Define an interface for assigned details
 interface AssignedDetails {
-    player: Player | null; // Player can be a Player object or null
-    team: Team | null | undefined; // Team can be a Team object, null, or undefined
+    player: Player | null;
+    team: Team | null | undefined;
 }
 
 const Page = () => {
@@ -72,7 +71,6 @@ const Page = () => {
         // Open modal
         setIsModalOpen(true);
 
-        // Reset selected team after assigning player
         setSelectedTeam("");
     };
 

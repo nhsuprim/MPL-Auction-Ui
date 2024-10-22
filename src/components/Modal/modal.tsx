@@ -9,6 +9,12 @@ const Modal = ({ team, player, onClose, setLoading, loading }: any) => {
     const jsConfetti = new JSConfetti();
 
     const handleSubmit = async () => {
+        if (!value || Number(value) < 100) {
+            toast.error(
+                "Player value cannot be empty and must be at least $100."
+            );
+            return;
+        }
         const data = {
             teamId: team?.id,
             auctionStatus: "SOLD",
@@ -19,8 +25,6 @@ const Modal = ({ team, player, onClose, setLoading, loading }: any) => {
             toast.error("Please select a team");
             return;
         }
-
-        // Start loading
 
         console.log("Auction Data:", data);
         console.log("player:", player.id);
@@ -72,6 +76,8 @@ const Modal = ({ team, player, onClose, setLoading, loading }: any) => {
                     <input
                         type="number"
                         value={value}
+                        required
+                        placeholder="Minimum value $100"
                         onChange={(e) => setValue(e.target.value)}
                         className="input input-bordered w-full"
                     />
